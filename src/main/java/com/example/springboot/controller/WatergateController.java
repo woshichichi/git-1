@@ -80,7 +80,7 @@ public class WatergateController {
 //        page1 = JSONUtil.toBean(json, new TypeReference<Page<Watergate>>() {
 //        }, true);
 //
-
+        System.out.println("das");
         return Result.success();
     }
 
@@ -150,7 +150,7 @@ public class WatergateController {
             page = watergateService.page(new Page<>(pageNum, pageSize), queryWrapper);
             stringRedisTemplate.opsForValue().set(Constants.WATERGATE_KEY,JSONUtil.toJsonStr(page));
         } else {
-            page = JSONUtil.toBean(jsonStr, new TypeReference<Page<Watergate>>() {
+            page = JSONUtil.toBean(jsonStr,    new TypeReference<Page<Watergate>>() {
             }, true);
         }
 
